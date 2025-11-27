@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajukan Pengaduan Baru | SIPANDU</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body { background-color: #f4f6f9; font-family: 'Roboto', sans-serif; }
+        .navbar-custom { background-color: #f54c53; border-color: #f54c53; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .navbar-custom .navbar-brand { color: #fff; font-weight: bold; }
+        .container-form { 
+            max-width: 800px; 
+            margin-top: 80px; 
+            margin-bottom: 50px; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .btn-submit { background-color: #f54c53; border-color: #f54c53; }
+        .btn-submit:hover { background-color: #d63037; border-color: #d63037; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="dashboard_individu.html">SIPANDU <span style="color:#fdd035">PELAPOR</span></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="dashboard_individu.html" style="color:white;"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                    <li><a href="index.html" style="color:white;"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container container-form">
+        <h2 class="text-center" style="color: #f54c53; margin-top: 0; margin-bottom: 30px;">
+            <i class="fa fa-pencil-square-o"></i> Formulir Pengaduan Baru
+        </h2>
+        <p class="text-center text-muted">Isi formulir ini selengkap mungkin untuk mempermudah proses tindak lanjut. Identitas Anda dirahasiakan.</p>
+        
+        <hr>
+
+        <form id="form-aduan-baru" onsubmit="submitAduan(event)">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="what">1. WHAT (Perihal/Deskripsi Singkat Pelanggaran)</label>
+                        <textarea class="form-control" id="what" rows="3" required placeholder="Jelaskan secara singkat jenis pelanggaran (misal: Penerimaan Gratifikasi, Penyelewengan Dana, dll.)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="when">2. WHEN (Tanggal Kejadian)</label>
+                        <input type="date" class="form-control" id="when" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="where">3. WHERE (Lokasi Kejadian)</label>
+                        <input type="text" class="form-control" id="where" required placeholder="Contoh: KPPN Jakarta Selatan, Dit. Pengelolaan Kas">
+                    </div>
+                </div>
+            </div>
+
+            <fieldset style="border: 1px solid #eee; padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+                <legend style="border-bottom: none; font-size: 16px; width: auto; padding: 0 10px; margin-left: -5px;">4. WHO (Pihak yang Terlibat)</legend>
+                <div class="form-group">
+                    <label for="who_pelaku">Nama/Jabatan Pelaku</label>
+                    <input type="text" class="form-control" id="who_pelaku" placeholder="Nama atau jabatan Pegawai yang diduga melakukan pelanggaran (Jika tidak tahu, tulis 'Tidak Diketahui')">
+                </div>
+                <div class="form-group">
+                    <label for="who_saksi">Nama Saksi (Jika Ada)</label>
+                    <input type="text" class="form-control" id="who_saksi" placeholder="Nama Pegawai lain yang mengetahui kejadian ini (Jika tidak ada, kosongkan)">
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="how">5. HOW (Modus dan Detail Lengkap)</label>
+                <textarea class="form-control" id="how" rows="5" required placeholder="Jelaskan secara detail bagaimana perbuatan tersebut dilakukan, kronologis, dan bukti-bukti yang dimiliki."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="file_bukti">Dokumen / Bukti Pendukung (Simulasi)</label>
+                <input type="file" class="form-control" id="file_bukti" multiple>
+                <p class="help-block">Max. 5MB per file. (Hanya simulasi, file tidak benar-benar terkirim).</p>
+            </div>
+
+            <button type="submit" class="btn btn-submit btn-lg btn-block">
+                <i class="fa fa-send"></i> Kirim Pengaduan Saya
+            </button>
+            <a href="dashboard_individu.html" class="btn btn-default btn-block" style="margin-top: 10px;">Batal dan Kembali</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Fungsi sederhana untuk menghasilkan ID Tiket
+        function generateId() {
+            // Menghasilkan ID 5 digit acak
+            return Math.floor(Math.random() * 90000) + 10000; 
+        }
+
+        function submitAduan(e) {
+            e.preventDefault();
+            
+            // Cek apakah semua field WAJIB sudah terisi
+            if(!$('#what').val() || !$('#when').val() || !$('#where').val() || !$('#how').val()) {
+                alert("Mohon lengkapi semua isian yang wajib.");
+                return;
+            }
+
+            // 1. Kumpulkan data
+            var newAduan = {
+                id: generateId(),
+                tanggal: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' }),
+                what: $('#what').val(),
+                when: $('#when').val(),
+                where: $('#where').val(),
+                who_pelaku: $('#who_pelaku').val() || 'Tidak Diketahui',
+                who_saksi: $('#who_saksi').val() || 'Tidak Ada',
+                how: $('#how').val(),
+                status: 'Baru', // Status awal (HARUS SAMA di semua file)
+                tanggal_diterima: new Date().toISOString().slice(0, 10) 
+            };
+
+            // 2. Muat data yang sudah ada dari LocalStorage (Key: 'sipandu_aduan')
+            var aduanList = JSON.parse(localStorage.getItem('sipandu_aduan')) || [];
+            
+            // 3. Tambahkan aduan baru dan simpan
+            aduanList.push(newAduan);
+            localStorage.setItem('sipandu_aduan', JSON.stringify(aduanList));
+
+            // 4. Notifikasi dan Redirect
+            alert(`Pengaduan Berhasil Dikirim!\nID Tiket Anda: #${newAduan.id}`);
+            window.location.href = "dashboard_individu.html";
+        }
+    </script>
+</body>
+</html>

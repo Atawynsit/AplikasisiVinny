@@ -1,0 +1,312 @@
+/* Simpan file ini dengan nama: style.css */
+
+/* --- 1. GLOBAL SETTINGS --- */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #f54c53; /* Warna Merah DJPb */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d12f36;
+    text-decoration: none;
+}
+
+/* --- 2. NAVIGATION --- */
+.gtco-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1001;
+}
+
+#gtco-logo img {
+    height: 60px; /* Ukuran logo optimal */
+    width: auto;
+}
+
+/* --- 3. HEADER & HERO SECTION (Optimized Layout) --- */
+#gtco-header {
+    background-color: #fdd035;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    /* Menggunakan min-height agar tidak terpotong di layar tinggi, 
+       tapi bisa memanjang di layar kecil */
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; /* Vertikal Center */
+}
+
+.gtco-cover .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Overlay lebih gelap agar teks terbaca */
+    z-index: 1;
+}
+
+.gtco-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Teks Header */
+.mt-text {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+#gtco-header h1 {
+    font-size: 48px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.intro-text-small {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fdd035; /* Warna Kuning untuk aksen */
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.intro-text-small-add {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* --- 4. FORM LOGIN (Card Styling) --- */
+.form-wrap {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Bayangan modern */
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tab-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.tab-menu li {
+    width: 50%;
+    text-align: center;
+}
+
+.tab-menu li a {
+    display: block;
+    padding: 15px;
+    background: #f0f0f0;
+    color: #888;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-menu li.active a {
+    background: #fff;
+    color: #f54c53;
+    border-bottom: none;
+}
+
+.tab-content {
+    padding: 30px;
+}
+
+.tab-content-inner {
+    display: none;
+}
+
+.tab-content-inner.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+/* Input Field styling */
+.form-control {
+    height: 50px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background: #fbfbfb;
+    box-shadow: none;
+    font-size: 14px;
+    margin-bottom: 20px; /* Spasi antar input */
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: #f54c53;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(245, 76, 83, 0.2);
+}
+
+.btn-primary {
+    background: #f54c53;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #d63037;
+}
+
+/* --- 5. SECTIONS (Fitur & Unsur) --- */
+.gtco-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.gtco-heading {
+    margin-bottom: 50px;
+}
+
+.gtco-heading h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feature-center {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-center img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.feature-center h3 {
+    font-size: 18px;
+    color: #f54c53;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Unsur Pengaduan Layout */
+.feature-left {
+    margin-bottom: 30px;
+}
+
+.feature-copy h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-left: 3px solid #f54c53; /* Aksen garis merah */
+    padding-left: 10px;
+}
+
+/* --- 6. FOOTER --- */
+#gtco-footer {
+    background: #222;
+    color: #aaa;
+    padding: 60px 0 20px 0;
+    position: relative;
+}
+
+#gtco-footer h3 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gtco-footer-links {
+    padding: 0;
+    list-style: none;
+}
+
+.gtco-footer-links li a {
+    color: #aaa;
+}
+
+.gtco-footer-links li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.gtco-quick-contact li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.gtco-quick-contact i {
+    color: #f54c53;
+    margin-right: 10px;
+}
+
+#gtco-copyright {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* --- 7. RESPONSIVE FIXES --- */
+@media screen and (max-width: 992px) {
+    #gtco-header {
+        display: block; /* Tidak pakai flex di mobile agar scroll normal */
+        padding-top: 100px;
+        padding-bottom: 50px;
+        height: auto;
+    }
+    
+    .mt-text {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    #gtco-header h1 {
+        font-size: 32px;
+    }
+
+    .form-wrap {
+        margin-top: 30px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

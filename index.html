@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SIVINNY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/theme/Landing/css/animate.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="assets/theme/Landing/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/theme/Landing/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+        
+    <div class="gtco-loader"></div>
+    
+    <div id="page">
+        <nav class="gtco-nav" role="navigation">
+            <div class="gtco-container">
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-sm-4 col-xs-12 text-right">
+                        <div id="gtco-logo">
+                            <a href="#">
+                                <img src="sipandu.png" alt="SIPANDU" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(vinny.jpg);">
+            <div class="overlay"></div>
+            <div class="gtco-container">
+                <div class="row">
+                    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+                        <h1>Saluran Pengaduan</h1>
+                        <span class="intro-text-small">Whistleblowing System</span>
+                        <p class="intro-text-small-add">
+                            SIVINNY adalah sarana Whistleblowing System untuk melaporkan perbuatan berindikasi pelanggaran kode etik dan disiplin pegawai di lingkungan Lapangan Banteng.
+                        </p>
+                        <p class="intro-text-small-add">
+                            <strong>Privasi Anda Sangat Sangat Terjamin:</strong> Identitas pelapor dijaga kerahasiaannya.
+                        </p>
+                    </div>
+                    
+                    <div class="col-md-5 animate-box" data-animate-effect="fadeInRight">
+                        <div class="form-wrap">
+                            <div class="tab">
+                                <ul class="tab-menu">
+                                    <li class="gtco-first"><a href="#" data-tab="signup">DAFTAR</a></li>
+                                    <li class="active gtco-second"><a href="#" data-tab="login">MASUK</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    
+                                    <div class="tab-content-inner" data-content="signup">
+                                        <form id="registration-form" onsubmit="handleRegistration(event)">
+                                            <h4 class="text-center" style="margin-bottom:20px;">Form Pendaftaran Akun</h4>
+                                            
+                                            <div class="form-group">
+                                                <input class="form-control" name="nama" type="text" required placeholder="Nama Lengkap">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" name="email" type="email" required placeholder="Alamat Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" name="username_reg" type="text" required placeholder="Username Baru">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" name="password_reg" type="password" required placeholder="Kata Sandi (min 6 karakter)">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" name="konfirmasi_password" type="password" required placeholder="Konfirmasi Kata Sandi">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary btn-block" value="DAFTAR SEKARANG">
+                                            </div>
+                                        </form> 
+                                    </div>
+
+                                    <div class="tab-content-inner active" data-content="login">
+                                        <form id="loginform-demo" onsubmit="handleLogin(event)">
+                                            <div class="form-group">
+                                                <input class="form-control" id="username" type="text" required placeholder="Username / NIP" autocomplete="off">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" id="password" type="password" required placeholder="Kata Sandi" autocomplete="off">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <select class="form-control" id="role" required>
+                                                    <option value="">Pilih Role Login</option>
+                                                    <option value="administrator">Administrator</option>
+                                                    <option value="individu">Individu / Pelapor</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div style="background: #eee; padding: 10px; margin-bottom:15px; text-align:center; border-radius:4px;">
+                                                    <img src="https://pengaduandjpb.kemenkeu.go.id/sipandu//captcha/dummy.jpg" style="height: 30px;" alt="Captcha" />
+                                                </div>
+                                                <input class="form-control" id="captcha" type="text" placeholder="Ketik kode di atas (bebas)">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary btn-block" value="MASUK">
+                                            </div>
+                                        </form> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        </div>
+
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/jquery.min.js"></script>
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/jquery.easing.1.3.js"></script>
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/bootstrap.min.js"></script>
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/jquery.waypoints.min.js"></script>
+    <script src="https://pengaduandjpb.kemenkeu.go.id/sipandu/assets/theme/Landing/js/main.js"></script>
+
+    <script>
+        // Logika Tab (Signup/Login Toggle)
+        $(document).ready(function(){
+            $('.tab-menu li a').click(function(e){
+                e.preventDefault();
+                var tab = $(this).data('tab');
+                
+                $('.tab-menu li').removeClass('active');
+                $(this).parent().addClass('active');
+                
+                $('.tab-content-inner').removeClass('active');
+                $('.tab-content-inner[data-content="'+tab+'"]').addClass('active');
+            });
+        });
+
+        // Fungsi Pendaftaran (Mock Logic)
+        function handleRegistration(e) {
+            e.preventDefault();
+            var form = document.getElementById('registration-form');
+            var password = form.elements['password_reg'].value;
+            var confirmPassword = form.elements['konfirmasi_password'].value;
+            var username = form.elements['username_reg'].value;
+            var email = form.elements['email'].value;
+
+            if (password !== confirmPassword) {
+                alert("Pendaftaran Gagal: Kata Sandi dan Konfirmasi Kata Sandi tidak cocok.");
+                return;
+            }
+            if (password.length < 6) {
+                alert("Pendaftaran Gagal: Kata Sandi minimal 6 karakter.");
+                return;
+            }
+            if (!username || !email) {
+                alert("Pendaftaran Gagal: Semua field harus diisi.");
+                return;
+            }
+
+            // Simulasi pendaftaran berhasil
+            alert("Pendaftaran Akun Berhasil!\nUsername: " + username + "\nAnda dapat mencoba MASUK sekarang.");
+            
+            // Opsional: Pindah ke tab Login setelah berhasil daftar
+            $('.tab-menu li:last-child a').click();
+        }
+
+
+        // Fungsi Login (Dengan Role Selection)
+        function handleLogin(e) {
+            e.preventDefault();
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            var role = document.getElementById('role').value;
+
+            if (!user || !pass || !role) {
+                alert("Mohon isi Username, Kata Sandi, dan Role.");
+                return;
+            }
+
+            // Simulasi Login Berhasil
+            alert("Login sebagai " + role.toUpperCase() + " berhasil! Mengarahkan ke Dashboard...");
+
+            if (role === 'administrator') {
+                window.location.href = "dashboard.html"; // Ke dashboard Admin
+            } else if (role === 'individu') {
+                window.location.href = "dashboard_individu.html"; // Ke dashboard Individu
+            }
+        }
+    </script>
+</body>
+</html>
